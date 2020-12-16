@@ -15,7 +15,7 @@ input [BW_PER_WT-1:0] input_weight,
 input load_act,
 input load_weight,
 
-input VF_store_ctrl,          //control signal for store in H buffer
+input VF_store_ctrl,          //control signal for store in V buffer
 
 output reg [BW_PER_ACT-1:0] H_buffer,
 output reg [BW_PER_ACT-1:0] V_buffer,
@@ -94,7 +94,7 @@ always @* begin
     if (!enable) begin
         n_Psum = 0;
     end else begin
-        n_Psum = $signed(act_buffer) * $signed(weight_buffer);        //signed input & signed output
+        n_Psum = $signed(act_buffer) * $signed(weight_buffer);     
     end
 end
 
